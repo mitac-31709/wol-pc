@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=PCを起動 (Wake-on-LAN)
+Comment=Tailscale 経由で SSH を使い、別端末の PC を Wake-on-LAN で起動します
+Exec=__SCRIPT_DIR__/wake-pc.sh
+Icon=system-reboot
+Terminal=false
+Categories=Utility;Network;
+StartupNotify=true
