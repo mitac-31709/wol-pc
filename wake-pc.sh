@@ -166,6 +166,15 @@ case $ssh_exit in
   2)
     notify_failure "WOL 設定エラー" "SSH の実行に必要なツールや設定が不足しています。\nsshpass のインストールと config.env を確認してください。"
     ;;
+  5)
+    notify_failure "WOL 認証エラー" "中継ホスト ${WOL_RELAY_HOST} の SSH パスワードが正しくありません。\nconfig.env の SSH_PASSWORD を確認してください。"
+    ;;
+  6)
+    notify_failure "WOL 接続エラー" "中継ホスト ${WOL_RELAY_HOST} の SSH ホスト鍵が未登録です。\n一度ターミナルで ssh ${SSH_USER}@${WOL_RELAY_HOST} を実行し、yes で鍵を登録してください。"
+    ;;
+  7)
+    notify_failure "WOL 接続エラー" "中継ホスト ${WOL_RELAY_HOST} の SSH ホスト鍵が変更されています。\n~/.ssh/known_hosts を確認してください。"
+    ;;
   *)
     notify_failure "WOL エラー" "WOL 実行中にエラーが発生しました（終了コード: ${ssh_exit}）"
     ;;
